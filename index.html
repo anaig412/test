@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slide Show</title>
+	<link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="content">
+        <img src="slides/image1.jpg" alt="slideshow image" id="myimage">
+    </div>
+    
+    <p id="links">
+		<a href="#" id="previous">previous</a>
+		<a href="#" id="next">next</a>
+	</p>
+
+	<script>
+		var currentImage =0;
+		var myPhotos = [
+			"image1.jpg",
+			"image2.jpg",
+			"image3.jpg",
+			"image4.jpg",
+			"image5.jpg",
+		]
+		var theImage = document.getElementById("my image");
+		var nextBtn = document.getElementById("next");
+		var prevBtn = document.getElementById("previous");
+
+		nextBtn.addEventListener("click", function(event) {
+			event.preventDefault();
+			currentImage++;
+
+			if(currentImage ==(nyPhotos.length)){
+				currentImage =0;
+				theImage.setAttribute("src",`slides/${myPhotos[currentImage]}`);
+			} else {
+				theImage.setAttribute("src", `slides/${myPhotos[currentImage]}`);
+			}
+		});
+
+		prevBtn.addEventListener("click", function(event) {
+			event.preventDefault();
+			currentImage--;
+
+			if(currentImage <0){
+				currentImage = myPhotos.length-1;
+				theImage.setAttribute("src",`slides/${myPhotos[currentImage]}`);
+			} else {
+				theImage.setAttribute("src", `slides/${myPhotos[currentImage]}`);
+			}
+		});
+	</script>
+	
+</body>
+</html>
